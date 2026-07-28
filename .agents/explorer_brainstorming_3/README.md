@@ -1,1 +1,0 @@
-# Explorer Brainstorming metadata folder
