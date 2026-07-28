@@ -2,3 +2,9 @@ node_modules/
 .env
 *.zip
 .DS_Store
+
+# Runtime data / PII - should never be committed
+*.sqlite
+*.sqlite3
+FACTURAS/
+SCREEN-MOVIL.jpeg
