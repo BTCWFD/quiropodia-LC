@@ -4,8 +4,9 @@ header('X-Frame-Options: DENY');
 header('X-Content-Type-Options: nosniff');
 header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self';");
 
-$expectedUser = 'admin';
-$expectedHash = '$2y$10$sz7c8R/0H.L5K7e9gG8Pj.O4zQp1FvY7B5w06Z7iJ8Wy8C3Dk.r/9p';
+$adminConfig = require __DIR__ . '/admin_config.php';
+$expectedUser = $adminConfig['user'];
+$expectedHash = $adminConfig['hash'];
 
 $user = $_SERVER['PHP_AUTH_USER'] ?? '';
 $pass = $_SERVER['PHP_AUTH_PW'] ?? '';

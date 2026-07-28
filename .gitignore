@@ -8,3 +8,6 @@ node_modules/
 *.sqlite3
 FACTURAS/
 SCREEN-MOVIL.jpeg
+
+# Real admin credentials - upload manually to the server, never commit
+admin_config.php

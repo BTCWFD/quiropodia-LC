@@ -8,10 +8,13 @@ const DATABASE_PATH = process.env.DATABASE_PATH || path.join(__dirname, 'databas
 
 app.use(express.json());
 
+const ADMIN_USER = process.env.ADMIN_USER;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
 const basicAuth = (req, res, next) => {
   const b64auth = (req.headers.authorization || '').split(' ')[1] || '';
   const [login, password] = Buffer.from(b64auth, 'base64').toString().split(':');
-  if (login && password && login === 'admin' && password === 'admin123') {
+  if (ADMIN_USER && ADMIN_PASSWORD && login === ADMIN_USER && password === ADMIN_PASSWORD) {
     return next();
   }
   res.set('WWW-Authenticate', 'Basic realm="Admin Panel"');
